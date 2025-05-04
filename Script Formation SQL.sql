@@ -2,93 +2,68 @@
 -- ** Application Leçon 1 **
 
 -- Q1) Affichez tous les employés de la table employes
-/*
 SELECT *
 FROM Employes ;
-*/
-
 
 -- Q2) Afficher uniquement les colonnes Prénom, Nom, Pays des employés
-/*
 SELECT Prenom, Nom, Pays
 FROM Employes;
-*/
-
 
 -- Q3) Selectionner tous les employés dont le pays est la RDC
-/*
 SELECT * 
 FROM Employes 
 WHERE Pays = 'RDC';
-*/
 
 
 -- Q4) Afficher les employés ayant un salaire supérieur à 90.000
-/*
 SELECT * 
 FROM Employes 
 WHERE Salaire > 90000;
-*/
 
 
 -- Q5) Lister les employés ayant été ambauché après le 1er Janvier 2020
-/* 
 SELECT * 
 FROM Employes 
-WHERE DateEmbauche > '2020-02-01'; 
-*/
+WHERE DateEmbauche > '2020-02-01';
 
 
 -- Q6) Afficher les employés dont le prénom commence par la lettre "A"
-/*
 SELECT * 
 FROM Employes 
 WHERE Prenom LIKE 'A%'
-*/
 
 
 -- Q6) Bis- Afficher les employés dont le prénom Contient la lettre "A"
-/*
 SELECT * 
 FROM Employes 
 WHERE Prenom LIKE '%A%'
-*/
 
 
 -- Q6) Bis2- Afficher les employés dont le prénom se termine par la lettre "A"
-/*
 SELECT * 
 FROM Employes 
 WHERE Prenom LIKE '%A'
-*/
 
 
 -- Q7) Séléctionner les employés qui travaillent dans le département Informatique ou Finance
-/*
 SELECT * 
 FROM Employes 
 WHERE Departement= 'Informatique' OR Departement= 'Finance' ;
-*/
 
 
 -- Q8) Afficher les employés ayant un salaire entre 50.000 et 100.000
-/*
 SELECT * 
 FROM Employes 
 WHERE Salaire BETWEEN 50000 AND 100000;
-*/
 
 
 -- Q9) Afficher les employés dont le poste contient le mot "Manager"
-/*
 SELECT * 
 FROM Employes 
 WHERE Poste LIKE '%Manager%';
-*/
 
 
 -- Q10) Lister les employés dont l'évaluation de performance est différente de 5
-/*
 SELECT * 
 FROM Employes 
 WHERE EvaluationPerformance != '5'
@@ -97,61 +72,47 @@ WHERE EvaluationPerformance != '5'
 SELECT * 
 FROM Employes 
 WHERE EvaluationPerformance <> '5'
-*/
 
 
 
 -- Q11) Sélectionner les employés ayant été embauchés en 2021 (Année)
-/*
 SELECT * 
 FROM Employes 
 WHERE YEAR(DateEmbauche)= '2021'
-*/
 
 
 -- Q11) Bis_ Sélectionner les employés ayant été embauchés en Janvier (Mois)
-/*
 SELECT * 
 FROM Employes 
 WHERE MONTH(DateEmbauche)= '01'
-*/
 
 
 -- Q11) Bis2_ Sélectionner les employés ayant été embauchés le 23 (Jour)
-/*
 SELECT * 
 FROM Employes 
 WHERE DAY(DateEmbauche)= '23'
-*/
 
 
 -- Q12) Afficher les employéqs qui viennent de France, Belgique ou Etats-Unis
-/*
 SELECT * 
 FROM Employes 
 WHERE Pays= 'France' OR Pays='Belgique' OR Pays='États-Unis';
-*/
 
 
 -- Q12) Bis_Afficher les employéqs qui viennent de France, Belgique ou Etats-Unis
-/*
 SELECT * 
 FROM Employes 
 WHERE Pays IN ('France', 'Belgique', 'États-Unis');
-*/
 
 
 -- Q13) Afficher les employés avec les 5 salaires les plus élevés
-/*
 SELECT * 
 FROM Employes 
 ORDER BY Salaire DESC
-LIMIT 5; 
-*/
+LIMIT 5;
 
 
 -- Q13) Bis_Afficher tous les employés en fonction des salaires croissants
-/*
 SELECT * 
 FROM Employes 
 ORDER BY Salaire
@@ -160,19 +121,15 @@ ORDER BY Salaire
 SELECT * 
 FROM Employes 
 ORDER BY Salaire ASC
-*/
 
 
 -- Q13) Bis2_Afficher tous les employés en fonction des salaires décroissants
-/*
 SELECT * 
 FROM Employes 
 ORDER BY Salaire DESC
-*/
 
 
 -- Q14) Afficher tous les employés en fonction de leur date d'embauche dans l'ordre droissant
-/*
 SELECT * 
 FROM Employes 
 ORDER BY DateEmbauche ;
@@ -181,35 +138,27 @@ ORDER BY DateEmbauche ;
 SELECT * 
 FROM Employes 
 ORDER BY DateEmbauche ASC;
-*/
 
 
 -- Q15) Affichez les 3 premiers employés selon leur performances descendantes
-/*
 SELECT *
 FROM employes
 ORDER BY EvaluationPerformance DESC 
 LIMIT 3;
-*/
 
 
 -- Q16) Calculer le salaire total de tous les employés ou masse salariale
-/*
 SELECT SUM(Salaire) AS Salaire_Total
 FROM employes
-*/
 
 
 -- Q17) Calculer le salaire moyen des employés du département informatique
-/*
 SELECT AVG(Salaire) AS Salaire_Moyen_Dep_INFO
 FROM employes  
 WHERE Departement= 'Informatique'
-*/
 
 
 -- Q18) Déterminer le nombre total d'employés
-/*
 SELECT COUNT(ID) AS Nombre_employés
 FROM employes  
 WHERE Departement= 'Informatique'
@@ -217,90 +166,72 @@ WHERE Departement= 'Informatique'
 -- Autre méthode
 SELECT COUNT(*) AS Nombre_employés
 FROM employes
-*/
 
 
 -- Q19) Afficher le salaire minimum et maximum des employés
-/*
 SELECT MIN(Salaire) AS Salaire_Minimum, MAX(Salaire) AS Salaire_Maximum
 FROM employes;
-*/
 
 
 -- Q20) Afficher le nombre d'employés dans chaque département
-/*
 SELECT Departement, COUNT(*) AS Nmbre_Employés_Dep
 FROM employes
 GROUP BY  Departement
 WHERE Departement
-*/
 
 
 -- Q21) Afficher le Salaire moyen par pays
-/*
 SELECT Pays, AVG(Salaire) AS Salaire_Moyen_Pays
 FROM employes
 GROUP BY  Pays
-*/
 
 
 -- Q22) Lister les département ayant plus de 3 employés
-/*
 SELECT Departement, COUNT(*) AS Nbre_Employés
 FROM employes
 GROUP BY Departement 
 HAVING COUNT(*) > 3;
-*/
 
 
 -- Q23) Afficher les pays où le salaire moyen est supérieur à 70.000 et classez ces pays par ordre alphabétique
-/*
 SELECT Pays, AVG(Salaire) AS Salaire_Moyen_Pays
 FROM employes
 GROUP BY Pays
 HAVING Salaire_Moyen_Pays > 70000
 ORDER BY Pays;
-*/
 
 
 -- Q24) Ajouter un nouvel employé dans la table employé
-/*
 INSERT INTO employes (ID, Prenom, Nom, Email, Telephone, Poste, Departement, Salaire, DateEmbauche, EvaluationPerformance, Pays)
 VALUES (31, 'Michel', 'Tamba', 'micheltamba@yahoo.fr', '+226-90-45-45-45', 'Analyste', 'Finances', 60000, '2025-01-20', 4, 'Congo')
-*/
 
 
 -- Q25) Mettez à jour le salaire de l'employé ayant l'ID=5 pour qu'il soit égal à 80.000
-/* UPDATE employes 
+UPDATE employes 
 SET Salaire=80000 
-WHERE ID=5; */
+WHERE ID=5;
 
 
 -- Q26) Modifier le département des employés travaillant comme dévelopeur pour qu'il devienne développement
-/*UPDATE employes 
+UPDATE employes 
 SET Departement= 'Développement'
 WHERE Poste= 'Dévelopeur';*/ -- PROBLEME A CE NIVEAU
 
 
 
 -- Q27) Sélectionner les employés ayant été embauchés dans les 5 dernière années
-/*
 SELECT * 
 FROM Employes 
 WHERE DateEmbauche >=DATE_SUB(CURDATE(), INTERVAL 5 YEAR);
-*/
 
 
 -- Q28) Sélectionner les employés qui ne sont pas évalués à 5 mais gagnent plus de 100000
-/*
 SELECT * 
 FROM Employes 
 WHERE EvaluationPerformance !=5 AND Salaire > 100000;
-*/
 
 
 -- Q29) Afficher les employés travaillant dans un département dont le salaire total dépasse 200000
-/*
 SELECT Nom, Prenom, Salaire, Departement
 FROM Employes 
 WHERE Departement IN (
@@ -308,15 +239,12 @@ WHERE Departement IN (
     FROM Employes 
     GROUP BY Departement
     HAVING SUM(Salaire) > 200000 );
-*/
 
 
 -- Q30) Lister les employers dont l'E-mail contient "gmail"
-/*
 SELECT * 
 FROM employes 
 WHERE Email LIKE '%gmail%'
-*/
 
 
 -- **************** FIN Leçon 1 ***********************
@@ -444,10 +372,8 @@ JOIN Départements;
 -- **************** FIN Leçon 2 ***********************
 
 
-
              -- ** Application Leçon 3 **
 -- 1) Les sous requêtes
-  /*
   -- a)- Sous-requête dans la clause " WHERE "
     -- QUESTION: Trouver tous les employés dont le salaire est supérieur à la moyenne des salaires dans l'entreprise.
 
@@ -469,30 +395,25 @@ WHERE Salaire > (SELECT AVG(Salaire) FROM Employes);
 
   -- b)- Sous-requête dans la clause " FROM "
     -- QUESTION: Déterminer le salaire moyen par département en utilisant une sous-requête dans la clause FROM.
-/*
 SELECT Departement, Salaire
 FROM Employes ;
 
 SELECT Departement, AVG(Salaire) AS Salaire_Moyen_Dep
 FROM (SELECT Departement, Salaire FROM Employes) AS SubQuery
 GROUP BY Departement;
-*/
 
   -- c)- Sous-requête dans la clause " SELECT "
     -- QUESTION: Déterminer le salaire moyen de tous les employés dans le même pays qu'un employé spécifique.
-/*
 SELECT Prenom, Nom, Salaire, 
 (SELECT AVG(Salaire) FROM Employes WHERE Pays = E.Pays) AS Salaire_Moyen_Pays
 FROM Employes E
 WHERE E.Prenom = 'Fabrice';
-*/
 
   -- d)- Sous-requête dans la clause " IN "
     -- QUESTION: Déterminer les employés dont le salaire est supérieur à celui de certains autres employés sélectionnés par un critère spécifique.
-/*SELECT Prenom, Nom, Salaire
+SELECT Prenom, Nom, Salaire
 FROM Employes
-WHERE Salaire > (SELECT Salaire FROM Employes WHERE Departement = 'IT' AND Salaire > 40000); 
-*/
+WHERE Salaire > (SELECT Salaire FROM Employes WHERE Departement = 'IT' AND Salaire > 40000);
 
 -- 2) Expressions Table Communes (CTE) " WITH "
 WITH Nom_CTE AS (
@@ -500,6 +421,7 @@ WITH Nom_CTE AS (
 SELECT Colonne1, Colonne2
 FROM Table
 WHERE Condition)
+    
 -- Requête principale qui utilise la CTE
 SELECT *
 FROM Nom_CTE;
